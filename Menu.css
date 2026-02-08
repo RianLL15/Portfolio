@@ -55,8 +55,11 @@ h2 {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* auto-fill ajuda a organizar melhor que o auto-fit em alguns casos */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
     gap: 20px;
+    /* Força todas as linhas a terem o mesmo tamanho baseado na maior do site todo */
+    grid-auto-rows: 1fr; 
 }
 
 .menu-card {
@@ -70,8 +73,10 @@ h2 {
     
     display: flex;
     flex-direction: column;
-    height: 100%;      
-    box-sizing: border-box; 
+    /* justify-content centraliza o conteúdo verticalmente se sobrar espaço */
+    justify-content: center; 
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .menu-card:hover {
@@ -138,3 +143,4 @@ h2 {
     color: #1e90ff;
 
 }
+
