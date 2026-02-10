@@ -3,7 +3,7 @@ const meusCursos = [
         titulo: "Python para Análise de Dados",
         instituicao: "Data Science Academy",
         status: "concluido",
-        descricao: "Formação focada em manipulação de dados, estatística aplicada e criação de análises com bibliotecas do ecossistema Python.",
+        descricao: "Formação focada em manipulação de dados, estatística aplicada e análises utilizando bibliotecas do ecossistema Python.",
         data: "Jan 2024 - Mar 2024",
         tecnologias: ["Python", "Pandas", "NumPy"]
     },
@@ -11,16 +11,16 @@ const meusCursos = [
         titulo: "Java e Programação Orientada a Objetos",
         instituicao: "Udemy",
         status: "em-progresso",
-        descricao: "Estudo contínuo de fundamentos de orientação a objetos, boas práticas de arquitetura e desenvolvimento de aplicações robustas.",
+        descricao: "Aprofundamento em fundamentos de orientação a objetos, boas práticas e construção de aplicações escaláveis.",
         data: "Jun 2024 - Atual",
-        tecnologias: ["Java", "POO", "Clean Code"]
+        tecnologias: ["Java", "POO", "Boas Práticas"]
     },
     {
         titulo: "Especialista em SQL",
         instituicao: "Alura",
         status: "para-iniciar",
-        descricao: "Trilha prevista para aprofundamento em modelagem relacional, otimização de consultas e integração com ferramentas analíticas.",
-        data: "Planejado para 2026",
+        descricao: "Trilha planejada para modelagem relacional, otimização de consultas e integração com projetos analíticos.",
+        data: "Planejado",
         tecnologias: ["SQL", "Modelagem de Dados"]
     }
 ];
@@ -28,12 +28,9 @@ const meusCursos = [
 function renderCursos(filter = 'all') {
     const list = document.getElementById('course-list');
     if (!list) return;
-
     list.innerHTML = '';
 
-    const cursosFiltrados = meusCursos.filter(
-        (curso) => filter === 'all' || curso.status === filter
-    );
+    const cursosFiltrados = meusCursos.filter((curso) => filter === 'all' || curso.status === filter);
 
     if (!cursosFiltrados.length) {
         list.innerHTML = '<p class="course-desc">Nenhum curso encontrado para este filtro.</p>';
@@ -43,18 +40,16 @@ function renderCursos(filter = 'all') {
     cursosFiltrados.forEach(curso => {
         const statusLabel = curso.status === 'concluido'
             ? 'Concluído'
-            : curso.status === 'em-progresso'
-                ? 'Em Progresso'
-                : 'Para Iniciar';
+            : curso.status === 'em-progresso' ? 'Em progresso' : 'Planejado';
 
         list.innerHTML += `
             <article class="course-card border-${curso.status}">
                 <div class="course-header">
                     <div>
                         <h3 class="course-title">${curso.titulo} <span class="status-badge bg-${curso.status}">${statusLabel}</span></h3>
-                        <span class="institution color-${curso.status}">${curso.instituicao}</span>
+                        <span class="institution">${curso.instituicao}</span>
                     </div>
-                    <span style="color: #666; font-size: 0.85em; font-weight: bold;">📅 ${curso.data}</span>
+                    <span class="institution">${curso.data}</span>
                 </div>
                 <p class="course-desc">${curso.descricao}</p>
                 <div class="tags-container">
@@ -70,7 +65,4 @@ function updateFilter(category, button) {
     button.classList.add('active');
     renderCursos(category);
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderCursos('all');
-});
+document.addEventListener('DOMContentLoaded', () => renderCursos('all'));
