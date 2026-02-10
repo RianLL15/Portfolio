@@ -1,14 +1,5 @@
 const experiencias = [
     {
-        cargo: "Projetista",
-        empresa: "Escritório de Planejamento",
-        tipo: "Estágio",
-        periodo: "Abr 2018 - Jun 2021 (2 anos e 3 meses)",
-        cidade: "Florianópolis, SC",
-        detalhe: "Projetos e Planejamento Estrutural",
-        icon: "📐"
-    },
-    {
         cargo: "Estudante de Ciência da Computação",
         empresa: "Desenvolvimento Acadêmico e Projetos Autorais",
         tipo: "Formação",
